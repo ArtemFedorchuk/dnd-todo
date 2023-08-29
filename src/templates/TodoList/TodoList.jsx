@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
 
-import { client } from '../../Api/instance';
-import { TodoColumn } from '../../organisms/TodoColumn/TodoColumn';
+import { client } from '../../Api';
+import { useActions, useTodos } from '../../hooks';
+import { TodoColumn } from '../../organisms';
 
 const tasks = [
   {
@@ -37,6 +38,8 @@ const columns = [
 ];
 
 export const TodoList = () => {
+  const { count } = useTodos();
+  const { decrement, increment } = useActions();
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
@@ -45,6 +48,11 @@ export const TodoList = () => {
 
   return (
     <>
+      <div style={{ display: 'none' }}>
+        <button onClick={() => decrement()}>-</button>
+        <button onClick={() => increment()}>+</button>
+        <h1>Count: {count}</h1>
+      </div>
       {columns.map(({ id, title }) => (
         <Fragment key={id}>
           <TodoColumn title={title} tasks={tasks} />
