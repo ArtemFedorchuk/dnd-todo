@@ -10,7 +10,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Test app build
-        run: npm run dev
+        run: npm run start
   lint:
     runs-on: ubuntu-latest
     needs: install
