@@ -11,3 +11,4 @@ jobs:
         run: npm ci
       - name: Test app start
         run: npm run start
+
