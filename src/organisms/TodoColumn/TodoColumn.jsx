@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 
 import styles from './styles.module.scss';
 
-import { TodoItem } from '../../atoms/TodoItem/TodoItem';
+import { TodoItem } from '../../atoms';
 
 export const TodoColumn = ({ title, tasks }) => {
   return (
