@@ -1,27 +1,11 @@
 import React from 'react';
 
-import { TodoItem } from './atoms/TodoItem/TodoItem';
-
-import logo from './logo.svg';
-import './App.css';
+import { MainPage } from './pages/main/MainPage';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <TodoItem />
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MainPage />
     </div>
   );
 }

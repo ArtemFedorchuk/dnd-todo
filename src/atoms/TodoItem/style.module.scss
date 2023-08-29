@@ -1,7 +1,10 @@
-$color: red;
+@import '../../styles/main';
 
 .todoItem {
   width: 200px;
   height: 200px;
-  background: $color;
+  padding: 5px;
+
+  background: $task-card-bg;
+  border-radius: 3px;
 }
