@@ -13,7 +13,6 @@ jobs:
         run: npm run start
   tests:
     runs-on: ubuntu-latest
-    needs: test
     steps:
       - name: Get a repository code
         uses: actions/checkout@v3
@@ -23,7 +22,6 @@ jobs:
         run: npm run test
   build:
     runs-on: ubuntu-latest
-    needs: tests
     steps:
       - name: Get a repository code
         uses: actions/checkout@v3
