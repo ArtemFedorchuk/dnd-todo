@@ -1,5 +1,7 @@
+$color: red;
+
 .todoItem {
-    width: 200px;
-    height: 200px;
-    background: indianred;
+  width: 200px;
+  height: 200px;
+  background: $color;
 }
