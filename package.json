@@ -18,7 +18,13 @@
     "lint": "eslint --ext .js,.jsx src --fix",
     "lint:check": "eslint --ext .js,.jsx src",
     "lint:css": "stylelint src",
-    "lint:css:fix": "npm run lint:css -- --fix"
+    "lint:css:fix": "npm run lint:css -- --fix",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "npm run lint"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +51,8 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
     "prettier": "3.0.2",
     "sass": "^1.66.1",
     "stylelint": "^15.10.3",
