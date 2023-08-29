@@ -13,7 +13,6 @@ jobs:
         run: npm run start
   lint:
     runs-on: ubuntu-latest
-    needs: install
     steps:
       - name: Get a repository code
         uses: actions/checkout@v3
@@ -23,7 +22,6 @@ jobs:
         run: npm run lint:check
   build:
     runs-on: ubuntu-latest
-    needs: lint
     steps:
       - name: Get a repository code
         uses: actions/checkout@v3
