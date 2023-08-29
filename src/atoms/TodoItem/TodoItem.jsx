@@ -1,12 +1,7 @@
 import React from 'react';
 
-const TodoItem = () => {
-  return (
-    <div>
-      block
-      <p>paragraph</p>
-    </div>
-  );
-};
+import styles from './style.module.scss';
 
-export default TodoItem;
+export const TodoItem = () => {
+  return <div className={styles.todoItem}>item</div>;
+};
