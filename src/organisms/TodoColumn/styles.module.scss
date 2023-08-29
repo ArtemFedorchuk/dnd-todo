@@ -1,0 +1,19 @@
+@import '../../styles/main';
+
+.columnWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+
+  width: auto;
+  padding: 5px;
+
+  border: 1px solid $column-border;
+  border-radius: 3px;
+}
