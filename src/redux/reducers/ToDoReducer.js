@@ -4,17 +4,17 @@ import { client } from '../../Api';
 
 const initialColumns = [
   {
-    id: 1,
+    id: 0,
     title: 'ToDo',
     tasks: [],
   },
   {
-    id: 2,
+    id: 1,
     title: 'In Progress',
     tasks: [],
   },
   {
-    id: 3,
+    id: 2,
     title: 'Ready for QA',
     tasks: [],
   },
@@ -26,7 +26,6 @@ export const fetchAllTasks = createAsyncThunk('tasks/fetchAllTasks', async () =>
 });
 
 const initialState = {
-  count: 0,
   isLoading: false,
   columns: initialColumns,
   tasks: [],
@@ -36,11 +35,16 @@ const todosSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
-    increment(state) {
-      state.count++;
+    updateColumnTasks(state, action) {
+      const columnId = action.payload.columnId;
+      state.columns[columnId].tasks = action.payload.newList;
     },
-    decrement(state) {
-      state.count--;
+    updateMultiColumnTasks(state, action) {
+      const startColId = action.payload.startColId;
+      const endColId = action.payload.endColId;
+
+      state.columns[startColId].tasks = action.payload.startTasks;
+      state.columns[endColId].tasks = action.payload.endTasks;
     },
   },
   extraReducers: (builder) => {
