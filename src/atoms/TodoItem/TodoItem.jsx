@@ -4,7 +4,7 @@ import React from 'react';
 
 import styles from './style.module.scss';
 
-import { RemoveButton } from '../../atoms';
+import { MyButton } from '../../atoms';
 
 export const TodoItem = ({ text, index, columnName, onRemove }) => {
   const draggableId = React.useId();
@@ -24,7 +24,11 @@ export const TodoItem = ({ text, index, columnName, onRemove }) => {
 
           {showRemoveBtn && (
             <div className={styles.removeBtnWrapper}>
-              <RemoveButton onClick={() => onRemove({ columnId: columnName, task: text })} />
+              <MyButton
+                variant="error"
+                text="Remove"
+                onClick={() => onRemove({ columnId: columnName, task: text })}
+              />
             </div>
           )}
         </div>
@@ -34,8 +38,8 @@ export const TodoItem = ({ text, index, columnName, onRemove }) => {
 };
 
 TodoItem.propTypes = {
-  text: PropTypes.string,
-  index: PropTypes.number,
-  columnName: PropTypes.string,
-  onRemove: PropTypes.func,
+  text: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  columnName: PropTypes.string.isRequired,
+  onRemove: PropTypes.func.isRequired,
 };

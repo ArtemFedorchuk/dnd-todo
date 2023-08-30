@@ -26,6 +26,6 @@ export const TodoColumn = ({ col: { list, id }, onRemove }) => (
 );
 
 TodoColumn.propTypes = {
-  col: PropTypes.object,
-  onRemove: PropTypes.func,
+  col: PropTypes.object.isRequired,
+  onRemove: PropTypes.func.isRequired,
 };
