@@ -50,6 +50,10 @@ export const TodoList = () => {
         // Insert the item into the end list
         newEndList.splice(destination.index, 0, start.list[source.index]);
 
+        // disable moving items from 2 and 3 columns to 1 column
+        if ((start.id === 'in-progress' || start.id === 'done') && end.id === 'todo') {
+          return null;
+        }
         // Update the store
         updateMultiColumnTasks({
           startColId: start.id,
