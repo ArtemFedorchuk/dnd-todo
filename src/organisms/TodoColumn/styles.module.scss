@@ -11,10 +11,14 @@
   flex-direction: column;
   row-gap: 5px;
 
-  width: 214px;
+  width: 210px;
   min-height: 500px;
   padding: 5px;
 
-  border: 2px solid $column-border;
+  background: $column-bg;
   border-radius: 3px;
+}
+
+.columnTitle {
+  margin: 0 0 10px;
 }
