@@ -1,24 +1,22 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { client } from '../../Api';
+import { removeStringFromArray } from '../../utils';
 
-const initialColumns = [
-  {
-    id: 1,
-    title: 'ToDo',
-    tasks: [],
+const initialColumns = {
+  todo: {
+    id: 'todo',
+    list: [],
   },
-  {
-    id: 2,
-    title: 'In Progress',
-    tasks: [],
+  'in-progress': {
+    id: 'in-progress',
+    list: [],
   },
-  {
-    id: 3,
-    title: 'Ready for QA',
-    tasks: [],
+  done: {
+    id: 'done',
+    list: [],
   },
-];
+};
 
 export const fetchAllTasks = createAsyncThunk('tasks/fetchAllTasks', async () => {
   const response = await client.get('todos');
@@ -26,21 +24,30 @@ export const fetchAllTasks = createAsyncThunk('tasks/fetchAllTasks', async () =>
 });
 
 const initialState = {
-  count: 0,
   isLoading: false,
   columns: initialColumns,
-  tasks: [],
 };
 
 const todosSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
-    increment(state) {
-      state.count++;
+    updateColumnTasks(state, action) {
+      const columnId = action.payload.columnId;
+      state.columns[columnId].list = action.payload.newList;
     },
-    decrement(state) {
-      state.count--;
+    updateMultiColumnTasks(state, action) {
+      const startColId = action.payload.startColId;
+      const endColId = action.payload.endColId;
+
+      state.columns[startColId].list = action.payload.startTasks;
+      state.columns[endColId].list = action.payload.endTasks;
+    },
+    removeTaskByName(state, action) {
+      const columnId = action.payload.columnId;
+      const task = action.payload.task;
+
+      removeStringFromArray(state.columns[columnId].list, task);
     },
   },
   extraReducers: (builder) => {
@@ -48,8 +55,7 @@ const todosSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(fetchAllTasks.fulfilled, (state, action) => {
-      state.tasks = action.payload;
-      state.columns[0].tasks = action.payload;
+      state.columns['todo'].list = action.payload.map((task) => task.title);
       state.isLoading = false;
     });
   },

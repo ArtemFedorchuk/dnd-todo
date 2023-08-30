@@ -1,0 +1,13 @@
+@import '../../styles/main';
+
+.removeButton {
+  color: $white;
+  background: $remove-btn-bg;
+  border-radius: 3px;
+
+  &:hover {
+    cursor: pointer;
+    background: $remove-btn-hover-bg;
+    transition: $base-transition;
+  }
+}

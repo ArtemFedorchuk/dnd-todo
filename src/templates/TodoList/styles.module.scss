@@ -1,0 +1,8 @@
+.styledColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+
+  height: 100%;
+  min-height: 80vh;
+}
