@@ -1,10 +1,20 @@
 @import '../../styles/main';
 
 .todoItem {
+  position: relative;
+
   width: 200px;
   height: 200px;
   padding: 5px;
 
+  text-transform: capitalize;
+
   background: $task-card-bg;
   border-radius: 3px;
+}
+
+.todoItemId {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
 }

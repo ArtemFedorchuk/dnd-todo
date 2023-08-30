@@ -2,14 +2,14 @@ import { bindActionCreators } from '@reduxjs/toolkit';
 import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 
-import * as actions from '../redux/actions';
+import { actions, fetchAllTasks } from '../redux/reducers/ToDoReducer';
 
-const rotActions = { ...actions };
+const rootActions = { ...actions };
 
 export const useActions = () => {
   const dispatch = useDispatch();
 
   return useMemo(() => {
-    return bindActionCreators(rotActions, dispatch);
+    return bindActionCreators({ ...rootActions, fetchAllTasks }, dispatch);
   }, [dispatch]);
 };

@@ -5,14 +5,17 @@ import styles from './styles.module.scss';
 
 import { TodoItem } from '../../atoms';
 
-export const TodoColumn = ({ title, tasks }) => {
+export const TodoColumn = ({ column }) => {
   return (
     <div className={styles.columnWrapper}>
-      <h2>{title}</h2>
       <div className={styles.column}>
-        {tasks.map(({ id, ...rest }) => (
-          <Fragment key={id}>
-            <TodoItem {...rest} />
+        <h3 className={styles.columnTitle}>
+          {column.title}
+          {column.tasks.length > 0 && <span>: {column.tasks.length}</span>}
+        </h3>
+        {column.tasks.map((task) => (
+          <Fragment key={task.id}>
+            <TodoItem task={task} />
           </Fragment>
         ))}
       </div>
@@ -21,6 +24,5 @@ export const TodoColumn = ({ title, tasks }) => {
 };
 
 TodoColumn.propTypes = {
-  title: PropTypes.string,
-  tasks: PropTypes.array,
+  column: PropTypes.object,
 };
