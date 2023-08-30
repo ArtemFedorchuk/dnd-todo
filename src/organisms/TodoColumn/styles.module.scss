@@ -9,19 +9,34 @@
 .column {
   display: flex;
   flex-direction: column;
-  row-gap: 5px;
 
-  width: 210px;
+  width: 240px;
   min-height: 500px;
-  padding: 5px;
+  padding: 15px;
 
   background: $column-bg;
   border-radius: 3px;
   box-shadow:
     rgb(50 50 93 / 25%) 0 2px 5px -1px,
     rgb(0 0 0 / 30%) 0 1px 3px -1px;
+
+  h2 {
+    padding-bottom: 15px;
+    text-transform: capitalize;
+  }
 }
 
 .dragOver {
   background: $drag-over-bg;
+}
+
+.styledList {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  row-gap: 10px;
+  justify-content: flex-start;
+
+  background-color: $column-bg;
+  border-radius: 5px;
 }

@@ -3,7 +3,6 @@
 .todoItem {
   position: relative;
 
-  width: 200px;
   min-height: 100px;
   padding: 5px;
 
@@ -16,7 +15,7 @@
     rgb(0 0 0 / 30%) 0 1px 3px -1px;
 }
 
-.todoItemId {
+.removeBtnWrapper {
   position: absolute;
   right: 5px;
   bottom: 5px;
