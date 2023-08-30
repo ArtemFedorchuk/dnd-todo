@@ -11,9 +11,10 @@
   flex-direction: column;
   row-gap: 5px;
 
-  width: auto;
+  width: 214px;
+  min-height: 500px;
   padding: 5px;
 
-  border: 1px solid $column-border;
+  border: 2px solid $column-border;
   border-radius: 3px;
 }

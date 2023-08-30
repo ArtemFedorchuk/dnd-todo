@@ -5,6 +5,9 @@
   height: 200px;
   padding: 5px;
 
+  text-transform: capitalize;
+
   background: $task-card-bg;
+  border: 2px solid $column-border;
   border-radius: 3px;
 }
