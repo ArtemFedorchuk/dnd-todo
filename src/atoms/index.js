@@ -1,3 +1,3 @@
 export * from './TodoItem/TodoItem';
-export * from './ColumnTitle/ColumnTitle';
-export * from './RemoveButton/RemoveButton';
+export * from './MyButton/MyButton';
+export * from './MyModal/MyModal';

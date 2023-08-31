@@ -4,12 +4,12 @@ import React from 'react';
 
 import styles from './style.module.scss';
 
-import { RemoveButton } from '../../atoms';
+import { MyButton } from '../../atoms';
 
-export const TodoItem = ({ text, index, columnName, onRemove }) => {
+export const TodoItem = ({ task, index, columnName, onRemove }) => {
   const draggableId = React.useId();
 
-  const showRemoveBtn = columnName === 'in-progress' || columnName === 'done';
+  const showRemoveBtn = columnName === 'in-progress';
 
   return (
     <Draggable draggableId={draggableId + index.toString()} index={index} key={index}>
@@ -20,13 +20,19 @@ export const TodoItem = ({ text, index, columnName, onRemove }) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          {text}
+          {task.title}
 
-          {showRemoveBtn && (
-            <div className={styles.removeBtnWrapper}>
-              <RemoveButton onClick={() => onRemove({ columnId: columnName, task: text })} />
-            </div>
-          )}
+          <div className={styles.taskFooter}>
+            <b className={styles.taskId}>{task.id}</b>
+
+            {showRemoveBtn && (
+              <MyButton
+                variant="error"
+                text="Remove"
+                onClick={() => onRemove({ columnId: columnName, taskId: task.id })}
+              />
+            )}
+          </div>
         </div>
       )}
     </Draggable>
@@ -34,8 +40,8 @@ export const TodoItem = ({ text, index, columnName, onRemove }) => {
 };
 
 TodoItem.propTypes = {
-  text: PropTypes.string,
-  index: PropTypes.number,
-  columnName: PropTypes.string,
-  onRemove: PropTypes.func,
+  task: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+  columnName: PropTypes.string.isRequired,
+  onRemove: PropTypes.func.isRequired,
 };

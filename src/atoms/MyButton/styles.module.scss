@@ -1,0 +1,43 @@
+@import '../../styles/main';
+
+.baseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px;
+
+  font-size: 12px;
+  color: $white;
+
+  border-radius: 3px;
+
+  &:hover {
+    cursor: pointer;
+    transition: $base-transition;
+  }
+}
+
+.primary {
+  background: $primary-btn-bg;
+
+  &:hover {
+    background: $primary-btn-hover-bg;
+  }
+}
+
+.secondary {
+  background: $secondary-btn-bg;
+
+  &:hover {
+    background: $secondary-btn-hover-bg;
+  }
+}
+
+.error {
+  background: $error-btn-bg;
+
+  &:hover {
+    background: $error-btn-hover-bg;
+  }
+}

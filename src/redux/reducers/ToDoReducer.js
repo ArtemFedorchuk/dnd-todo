@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { client } from '../../Api';
-import { removeStringFromArray } from '../../utils';
+// import { removeStringFromArray } from '../../utils';
 
 const initialColumns = {
   todo: {
@@ -43,11 +43,16 @@ const todosSlice = createSlice({
       state.columns[startColId].list = action.payload.startTasks;
       state.columns[endColId].list = action.payload.endTasks;
     },
-    removeTaskByName(state, action) {
+    removeTaskById(state, action) {
       const columnId = action.payload.columnId;
-      const task = action.payload.task;
+      const taskId = action.payload.taskId;
 
-      removeStringFromArray(state.columns[columnId].list, task);
+      state.columns[columnId].list = state.columns[columnId].list.filter(
+        (task) => task.id !== taskId,
+      );
+    },
+    removeTasksByColumnId(state, action) {
+      state.columns[action.payload].list = [];
     },
   },
   extraReducers: (builder) => {
@@ -55,7 +60,7 @@ const todosSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(fetchAllTasks.fulfilled, (state, action) => {
-      state.columns['todo'].list = action.payload.map((task) => task.title);
+      state.columns['todo'].list = action.payload;
       state.isLoading = false;
     });
   },
