@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/dnd-todo/static/css/main.d1b9cb0a.css",
+    "main.js": "/dnd-todo/static/js/main.69a889dc.js",
+    "index.html": "/dnd-todo/index.html",
+    "main.d1b9cb0a.css.map": "/dnd-todo/static/css/main.d1b9cb0a.css.map",
+    "main.69a889dc.js.map": "/dnd-todo/static/js/main.69a889dc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d1b9cb0a.css",
+    "static/js/main.69a889dc.js"
+  ]
+}
