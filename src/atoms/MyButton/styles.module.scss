@@ -1,7 +1,15 @@
 @import '../../styles/main';
 
 .baseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px;
+
+  font-size: 12px;
   color: $white;
+
   border-radius: 3px;
 
   &:hover {
