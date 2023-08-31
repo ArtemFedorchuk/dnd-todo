@@ -11,8 +11,6 @@ export const TodoItem = ({ text, index, columnName, onRemove }) => {
 
   const showRemoveBtn = columnName === 'in-progress' || columnName === 'done';
 
-  console.log('test');
-
   return (
     <Draggable draggableId={draggableId + index.toString()} index={index} key={index}>
       {(provided) => (
