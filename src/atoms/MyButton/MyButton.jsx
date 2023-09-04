@@ -30,6 +30,6 @@ export const MyButton = ({ onClick, variant = 'primary', text }) => {
 
 MyButton.propTypes = {
   onClick: PropTypes.func.isRequired,
-  text: PropTypes.string,
+  text: PropTypes.string.isRequired,
   variant: PropTypes.string,
 };
