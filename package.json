@@ -75,6 +75,12 @@
     ],
     "*.{css,scss}": [
       "stylelint --fix"
+    ],
+    "*.js": [
+      "prettier --write",
+      "eslint src/ --fix",
+      "jest --bail --findRelatedTests",
+      "git add"
     ]
   }
 }
