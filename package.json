@@ -25,6 +25,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -b build",
     "test": "react-scripts test",
+    "test:coverage": "npm test -- --coverage",
     "lint": "eslint --ext .js,.jsx src --fix",
     "lint:check": "eslint --ext .js,.jsx src",
     "lint:css": "stylelint src",
