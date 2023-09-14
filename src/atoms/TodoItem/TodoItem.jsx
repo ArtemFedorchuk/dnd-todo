@@ -43,5 +43,5 @@ TodoItem.propTypes = {
   task: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
   columnName: PropTypes.string.isRequired,
-  onRemove: PropTypes.func.isRequired,
+  onRemove: PropTypes.func,
 };
