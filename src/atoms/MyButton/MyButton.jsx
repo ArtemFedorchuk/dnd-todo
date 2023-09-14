@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 export const MyButton = ({ onClick, variant = 'primary', text }) => {
   if (variant === 'error') {
     return (
-      <Button className={`${styles.baseButton} ${styles.error}`} onClick={() => onClick?.()}>
+      <Button className={`${styles.baseButton} ${styles.error}`} onClick={onClick}>
         {text}
       </Button>
     );
@@ -15,21 +15,21 @@ export const MyButton = ({ onClick, variant = 'primary', text }) => {
 
   if (variant === 'secondary') {
     return (
-      <Button className={`${styles.baseButton} ${styles.secondary}`} onClick={() => onClick?.()}>
+      <Button className={`${styles.baseButton} ${styles.secondary}`} onClick={onClick}>
         {text}
       </Button>
     );
   }
 
   return (
-    <Button className={`${styles.baseButton} ${styles.primary}`} onClick={() => onClick?.()}>
+    <Button className={`${styles.baseButton} ${styles.primary}`} onClick={onClick}>
       {text}
     </Button>
   );
 };
 
 MyButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  text: PropTypes.string,
+  onClick: PropTypes.func,
+  text: PropTypes.string.isRequired,
   variant: PropTypes.string,
 };

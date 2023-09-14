@@ -13,9 +13,19 @@ jobs:
         run: npm run lint:check
       - name: Lint styles
         run: npm run lint:css
-  build:
+  tests:
     runs-on: ubuntu-latest
     needs: lint
+    steps:
+      - name: Get a repository code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Test code
+        run: npm run test
+  build:
+    runs-on: ubuntu-latest
+    needs: tests
     steps:
       - name: Get a repository code
         uses: actions/checkout@v3
